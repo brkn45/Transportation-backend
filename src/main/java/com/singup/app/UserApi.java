@@ -12,8 +12,8 @@ public class UserApi {
 	String driver = "driver", passenger = "passenger";
 	Data data = new Data();
 	@PostMapping("/berkan")
-	public void createEmployee(@RequestBody User user) {
-		if(user.personType.equals(driver)){
+	public void createEmployee(@RequestBody String tmp) {
+		/*if(user.personType.equals(driver)){
 			data.getDriver().add(new Driver(user));
 			System.out.println("Name: " + user.getName());
 			//return new ResponseEntity<>(user, HttpStatus.OK);
@@ -26,6 +26,8 @@ public class UserApi {
 		else {
 			//return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+		*/
+		System.out.println("tmp: " + tmp);
 }
 	
 	@GetMapping("/hatice")
