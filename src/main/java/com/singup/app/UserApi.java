@@ -73,5 +73,13 @@ public class UserApi {
 		}
 		
 	}
+	@PostMapping("/addbus")
+	public Integer busResponse(@RequestBody Bus bus ) {
+		int busId = data.addAndReturnBusId();
+		bus.setBusDriverId(busId);
+		data.getBus().add(bus);
+		System.out.println("BusId: " + String.valueOf(busId));
+		return busId;
+	}
 	
 }
