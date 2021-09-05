@@ -19,6 +19,7 @@ public class User {
 	String address;
 	String personType;
 	String gender;
+	int id;
 	
 	public User(String name, String mail, String password, String address, String personType, String gender) {
 		super();
@@ -65,7 +66,12 @@ public class User {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 
 	
