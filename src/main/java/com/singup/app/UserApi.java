@@ -52,7 +52,7 @@ public class UserApi {
 				}
 			}
 			SuccessEntity ent = new SuccessEntity(-1,false);
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(ent, HttpStatus.OK);
 			
 		}
 		else if(auth.getPersonType().contentEquals(passenger)) {
@@ -65,7 +65,7 @@ public class UserApi {
 				}
 			}
 			SuccessEntity ent = new SuccessEntity(-1,false);
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(ent, HttpStatus.OK);
 		}
 		else {
 			System.out.println("Wrong anything");
