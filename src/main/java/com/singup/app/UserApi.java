@@ -79,6 +79,7 @@ public class UserApi {
 	public Integer busResponse(@RequestBody Bus bus ) {
 		int busId = data.addAndReturnBusId();
 		bus.setBusDriverId(busId);
+		bus.setBusId(String.valueOf(busId));
 		data.getBus().add(bus);
 		System.out.println("BusId: " + String.valueOf(busId));
 		return busId;
