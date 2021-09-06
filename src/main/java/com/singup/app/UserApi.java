@@ -22,7 +22,9 @@ public class UserApi {
 			
 		}
 		else if(user.personType.equals(passenger)) {
+			user.setId(data.increaseSize()); // increaseSize() return size than add +1 to size
 			data.getPassenger().add(new Passenger(user));
+			
 			System.out.println("Name: " + user.getName());
 			return new ResponseEntity<>(user, HttpStatus.OK);
 		}
@@ -82,10 +84,10 @@ public class UserApi {
 		return busId;
 	}
 	@PostMapping("/joinbus")
-	public String Joinbus(@RequestBody JoinBus joinbus) {
-		int i =0;
+	public String Joinbus(@RequestBody String tmp) {
+		/*int i =0;
 		Boolean flag = false;
-		System.out.println("istek geldi: ");
+		System.out.println("istek geldi: "+ data.getBus().size());
 		for(i=0;i<data.getBus().size();i++) {
 			if(data.getBus().get(i).getBusId() == joinbus.getBusId().intValue()) {
 				flag = true;
@@ -109,7 +111,8 @@ public class UserApi {
 		else {
 			System.out.println("flag false");
 			return "false";
-		}
+		}*/
+		System.out.println("Body: " + tmp );
 		
 		}
 }
