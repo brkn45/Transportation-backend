@@ -85,7 +85,7 @@ public class UserApi {
 	public String Joinbus(@RequestBody JoinBus joinbus) {
 		int i =0;
 		Boolean flag = false;
-		System.out.println("istek geldi: " + joinbus.getPassengerId() + " busId: " + joinbus.getBusId().toString());
+		System.out.println("istek geldi: ");
 		for(i=0;i<data.getBus().size();i++) {
 			if(data.getBus().get(i).getBusId() == joinbus.getBusId()) {
 				flag = true;
