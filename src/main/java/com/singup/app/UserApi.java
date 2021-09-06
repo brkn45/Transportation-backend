@@ -122,8 +122,9 @@ public class UserApi {
 		
 	}
 	@PostMapping("/allpassenger")
-	public ArrayList<User> pushAllPassenger(@RequestBody String driverId){
+	public ResponseEntity<ArrayList<User>> pushAllPassenger(@RequestBody String driverId){
 		int i=0;
+		System.out.println("driverId" + driverId);
 		String busId =null;
 		ArrayList<User> userList = new ArrayList<User>();
 		for(i=0;i < data.getDriver().size();i++) {
@@ -137,6 +138,6 @@ public class UserApi {
 			userList.add(data.getBus().get(busIntId).getBusPassenger().get(i));
 		}
 		System.out.println("driverId: " +driverId );
-		return userList;
+		return new ResponseEntity<>(userList, HttpStatus.OK);
 	}
 }
