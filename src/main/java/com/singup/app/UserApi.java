@@ -1,5 +1,7 @@
 package com.singup.app;
 
+import java.util.ArrayList;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -104,10 +106,11 @@ public class UserApi {
 				}
 			}
 			data.getBus().get(busNum).getBusPassenger()
-				.add(data.getPassenger() // add passenger to bus
-						.get(Integer.valueOf(joinbus.getPassengerId()))); 
+				.add(data.getPassenger() 
+						.get(Integer.valueOf(joinbus.getPassengerId()))); // add passenger to bus
+			
 			data.getPassenger().get(Integer.valueOf(joinbus.getPassengerId()))
-			.getBusId().add(joinbus.getBusId());  // add bus to passenger
+				.getBusId().add(joinbus.getBusId());  // add bus to passenger
 			System.out.println("istek dogru kayit yapildi");
 			return "true";
 		}
@@ -117,5 +120,23 @@ public class UserApi {
 		}
 		
 		
+	}
+	@PostMapping("/allpassenger")
+	public ArrayList<User> pushAllPassenger(@RequestBody String driverId){
+		int i=0;
+		String busId =null;
+		ArrayList<User> userList = new ArrayList<User>();
+		for(i=0;i < data.getDriver().size();i++) {
+			if(data.getDriver().get(i).getId()== Integer.valueOf(driverId)) {
+				busId = data.getDriver().get(i).getBusId().get(0);
+				break;
+			}
 		}
+		int busIntId = Integer.valueOf(busId) -1000;
+		for(i=0; i < data.getBus().size();i++) {
+			userList.add(data.getBus().get(busIntId).getBusPassenger().get(i));
+		}
+		System.out.println("driverId: " +driverId );
+		return userList;
+	}
 }
