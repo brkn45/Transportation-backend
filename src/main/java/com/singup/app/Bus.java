@@ -7,7 +7,7 @@ public class Bus {
     private String route;
     private  int totalPas;
     private String BusDriverName;
-    private int busId;
+    private String busId;
     private int busDriverId;
     private ArrayList<Passenger> busPassenger;
 
@@ -42,11 +42,11 @@ public class Bus {
 		BusDriverName = busDriverName;
 	}
 
-	public int getBusId() {
+	public String getBusId() {
 		return busId;
 	}
 
-	public void setBusId(int busId) {
+	public void setBusId(String busId) {
 		this.busId = busId;
 	}
 

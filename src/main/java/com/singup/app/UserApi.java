@@ -84,36 +84,37 @@ public class UserApi {
 		return busId;
 	}
 	@PostMapping("/joinbus")
-	public String Joinbus(@RequestBody String tmp) {
-		/*int i =0;
+	public String Joinbus(@RequestBody JoinBus joinbus) {
+		int i =0 ,busNum =0;
 		Boolean flag = false;
 		System.out.println("istek geldi: "+ data.getBus().size());
 		for(i=0;i<data.getBus().size();i++) {
-			if(data.getBus().get(i).getBusId() == joinbus.getBusId().intValue()) {
+			if(data.getBus().get(i).getBusId().equals(joinbus.getBusId()) ) {
+				busNum = i;
 				flag = true;
+				break;
 			}
 		}
 		if(flag == true) {
-			for(i=0; i < data.getBus().get(joinbus.getBusId()).getBusPassenger().size(); i++) {
-				if(data.getBus().get(joinbus.getBusId()).getBusPassenger().get(i).getId()==Integer.valueOf(joinbus.getPassengerId())) {
+			for(i=0; i < data.getBus().get(busNum).getBusPassenger().size(); i++) {
+				if(data.getBus().get(busNum).getBusPassenger().get(i).getId()==Integer.valueOf(joinbus.getPassengerId())) {
 					System.out.println("already");
 					return "already enroll bus";
 				}
 			}
-			data.getBus().get(joinbus.getBusId()).getBusPassenger()
+			data.getBus().get(busNum).getBusPassenger()
 				.add(data.getPassenger() // add passenger to bus
 						.get(Integer.valueOf(joinbus.getPassengerId()))); 
 			data.getPassenger().get(Integer.valueOf(joinbus.getPassengerId()))
-			.getBusId().add(joinbus.getBusId().toString());  // add bus to passenger
+			.getBusId().add(joinbus.getBusId());  // add bus to passenger
 			System.out.println("istek dogru kayit yapildi");
 			return "true";
 		}
 		else {
 			System.out.println("flag false");
 			return "false";
-		}*/
-		System.out.println("Body: " + tmp );
-		return tmp;
+		}
+		
 		
 		}
 }
