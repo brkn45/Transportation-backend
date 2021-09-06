@@ -81,7 +81,7 @@ public class UserApi {
 		System.out.println("BusId: " + String.valueOf(busId));
 		return busId;
 	}
-	@PostMapping("/joinBus")
+	@PostMapping("/joinbus")
 	public String Joinbus(@RequestBody JoinBus joinbus) {
 		int i =0;
 		Boolean flag = false;

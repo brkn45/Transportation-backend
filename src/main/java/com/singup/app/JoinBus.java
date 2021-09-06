@@ -1,12 +1,12 @@
 package com.singup.app;
 
 public class JoinBus {
-	private Integer busId;
-    private String PassengerId;
+	Integer busId;
+    String PassengerId;
 
-    JoinBus(Integer busId, String Passenger){
+    JoinBus(Integer busId, String PassengerId){
         this.busId       = busId;
-        this.PassengerId = Passenger;
+        this.PassengerId = PassengerId;
     }
 
     public Integer getBusId() {
