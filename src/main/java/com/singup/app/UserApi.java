@@ -87,7 +87,7 @@ public class UserApi {
 		Boolean flag = false;
 		System.out.println("istek geldi: ");
 		for(i=0;i<data.getBus().size();i++) {
-			if(data.getBus().get(i).getBusId() == joinbus.getBusId()) {
+			if(data.getBus().get(i).getBusId() == joinbus.getBusId().intValue()) {
 				flag = true;
 			}
 		}
