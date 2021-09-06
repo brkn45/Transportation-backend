@@ -3,7 +3,7 @@ package com.singup.app;
 import java.util.ArrayList;
 
 public class Passenger extends User{
-	ArrayList<String> busId;
+	private ArrayList<String> busId;
 	
 	public Passenger(String name, String mail, String password, String address, String personType, String gender) {
 		super(name, mail, password, address, personType, gender);

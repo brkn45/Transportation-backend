@@ -1,5 +1,7 @@
 package com.singup.app;
 
+import java.util.ArrayList;
+
 public class Bus {
 	private String name;
     private String route;
@@ -7,13 +9,22 @@ public class Bus {
     private String BusDriverName;
     private int busId;
     private int busDriverId;
-    
+    private ArrayList<Passenger> busPassenger;
+
 	public Bus(String name, String route, int totalPas,String busDriverName){
         this.name =name;
         this.route = route;
         this.totalPas = totalPas;
         this.BusDriverName = busDriverName;
+        this.busPassenger = new ArrayList<Passenger>();
+        
     }
+	public ArrayList<Passenger> getBusPassenger() {
+		return busPassenger;
+	}
+	public void setBusPassenger(ArrayList<Passenger> busPassenger) {
+		this.busPassenger = busPassenger;
+	}
 	public int getBusDriverId() {
 		return busDriverId;
 	}

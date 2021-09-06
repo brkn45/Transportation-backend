@@ -81,5 +81,35 @@ public class UserApi {
 		System.out.println("BusId: " + String.valueOf(busId));
 		return busId;
 	}
-	
+	@PostMapping("/joinBus")
+	public String Joinbus(@RequestBody JoinBus joinbus) {
+		int i =0;
+		Boolean flag = false;
+		System.out.println("istek geldi: " + joinbus.getPassengerId() + " busId: " + joinbus.getBusId().toString());
+		for(i=0;i<data.getBus().size();i++) {
+			if(data.getBus().get(i).getBusId() == joinbus.getBusId()) {
+				flag = true;
+			}
+		}
+		if(flag == true) {
+			for(i=0; i < data.getBus().get(joinbus.getBusId()).getBusPassenger().size(); i++) {
+				if(data.getBus().get(joinbus.getBusId()).getBusPassenger().get(i).getId()==Integer.valueOf(joinbus.getPassengerId())) {
+					System.out.println("already");
+					return "already enroll bus";
+				}
+			}
+			data.getBus().get(joinbus.getBusId()).getBusPassenger()
+				.add(data.getPassenger() // add passenger to bus
+						.get(Integer.valueOf(joinbus.getPassengerId()))); 
+			data.getPassenger().get(Integer.valueOf(joinbus.getPassengerId()))
+			.getBusId().add(joinbus.getBusId().toString());  // add bus to passenger
+			System.out.println("istek dogru kayit yapildi");
+			return "true";
+		}
+		else {
+			System.out.println("flag false");
+			return "false";
+		}
+		
+		}
 }
