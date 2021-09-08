@@ -122,22 +122,31 @@ public class UserApi {
 		
 	}
 	@PostMapping("/allpassenger")
-	public ResponseEntity<ArrayList<User>> pushAllPassenger(@RequestBody DriverId driverId){
-		int i=0;
+	public ResponseEntity<ArrayList<Passenger>> pushAllPassenger(@RequestBody DriverId driverId){
+		/*int i=0;
 		System.out.println("driverId" + driverId.getDriverId());
-		String busId =null;
+		String busId = null;
 		ArrayList<User> userList = new ArrayList<User>();
 		for(i=0;i < data.getDriver().size();i++) {
 			if(data.getDriver().get(i).getId()== Integer.valueOf(driverId.getDriverId())) {
 				busId = data.getDriver().get(i).getBusId().get(0);
 				break;
 			}
+		}int busIntId;
+		if(!busId.equals(null)) {
+			busIntId = Integer.valueOf(busId) -1000;
 		}
-		int busIntId = Integer.valueOf(busId) -1000;
+		else {
+			System.out.println("Otobus bos");
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
 		for(i=0; i < data.getBus().size();i++) {
 			userList.add(data.getBus().get(busIntId).getBusPassenger().get(i));
-		}
+		}*/
 		System.out.println("driverId: " +driverId );
-		return new ResponseEntity<>(userList, HttpStatus.OK);
+		return new ResponseEntity<>(data.getPassenger(), HttpStatus.OK);
+		
 	}
+	
 }

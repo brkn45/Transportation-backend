@@ -1,16 +1,27 @@
 package com.singup.app;
 
 public class DriverId {
-	  String driverId;
-	    public DriverId(String driverId){
-	        this.driverId =driverId;
-	    }
+	private String driverId;
+	private String name;
+    
 
-	    public String getDriverId() {
-	        return driverId;
-	    }
+	public DriverId(String driverId,String name){
+        this.driverId =driverId;
+        this.name = name;
+    }
 
-	    public void setDriverId(String driverId) {
-	        this.driverId = driverId;
-	    }
+    public String getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(String driverId) {
+        this.driverId = driverId;
+    }
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
