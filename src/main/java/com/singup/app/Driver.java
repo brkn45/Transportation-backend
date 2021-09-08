@@ -11,6 +11,7 @@ public class Driver extends User {
 	}
 	public Driver(User user) {
 		super(user.getName(), user.getMail(),user.getPassword(),user.getAddress(),user.getPersonType(), user.getGender());
+		super.setId(user.getId());
 		this.busId = new ArrayList<String>();
 	}
 	

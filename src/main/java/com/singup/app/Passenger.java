@@ -7,11 +7,13 @@ public class Passenger extends User{
 	
 	public Passenger(String name, String mail, String password, String address, String personType, String gender) {
 		super(name, mail, password, address, personType, gender);
+		
 		busId = new ArrayList<String>();
 	}
 	
 	public Passenger(User user) {
 		super(user.getName(), user.getMail(),user.getPassword(),user.getAddress(),user.getPersonType(), user.getGender());
+		super.setId(user.getId());
 		this.busId = new ArrayList<String>();
 	}
 	
